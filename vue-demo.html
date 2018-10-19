@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title></title>
+	<title>Vue sample - gas log</title>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 
 		<div id="app">
-		  <p>{{ message }}</p>
+		    <h2>Gas Log:</h2>
+		<ol>
+		  <li v-for="title in titles">
+		    <label>
+			{{title.text}} : <input type="text">
+		    </label>
+		  </li>
+		</ol>
+		<input type="button" value="Save">
+		<input type="button" value="Cancel">
 		</div>
 
+
 <script>
-let vm = new Vue({
-  el: '#app',
+new Vue({
+  el: "#app",
   data: {
-    message: 'Hello Vue.js!'
+    titles: [
+      { text: "Date" },
+      { text: "Mile" },
+      { text: "Gallon" },
+      { text: "Price" }
+    ]
   }
 })
 </script>
